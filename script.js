@@ -13,6 +13,6 @@
             window.addEventListener('scroll', () => {
                 const navbar = document.querySelector('.navbar');
                 window.scrollY > 50 ? 
-                navbar.style.backgroundColor = 'rgba(10, 10, 10, 0.98)' :
-                navbar.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
+                navbar.style.backgroundColor = 'rgba(15, 6, 32, 0.98)' :
+                navbar.style.backgroundColor = 'rgba(15, 6, 32, 0.95)';
             });

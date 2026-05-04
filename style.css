@@ -6,10 +6,12 @@
 }
 
 :root{
-    --dark-bg:#0a0a0a;
-    --darker-bg:#050505;
-    --accent:#2ecc71;
-    --accent-glow:rgba(46,204,113,0.4);
+    --dark-bg:#0f0620;
+    --darker-bg:#090312;
+    --accent:#7400b8;
+    --accent-secondary:#6930c3;
+    --accent-light:#48bfe3;
+    --accent-glow:rgba(116,0,184,0.35);
     --text:#ffffff;
 }
 
@@ -35,12 +37,12 @@ body{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:rgba(10,10,10,0.95);
+    background:rgba(15,6,32,0.95);
     z-index:1000;
 }
 
 .logo{
-    color:var(--accent);
+    color:var(--accent-light);
     font-size:1.8rem;
     font-weight:bold;
     text-decoration:none;
@@ -65,7 +67,7 @@ body{
     bottom: -5px;
     width: 0;
     height: 2px;
-    background: var(--accent);
+    background: var(--accent-light);
     transition: width 0.3s ease;
 }
 
@@ -80,7 +82,7 @@ body{
     align-items: center;
     background: radial-gradient(
         circle at 75% 30%,
-        rgba(46, 204, 113, 0.25) 0%,
+        rgba(72, 191, 227, 0.22) 0%,
         transparent 35%
     );
 }
@@ -95,7 +97,7 @@ body{
 .hero-content h1{
     font-size:4rem;
     margin-bottom:1rem;
-    color:var(--accent);
+    color:var(--accent-light);
 }
 
 .hero-content p{
@@ -118,7 +120,7 @@ body{
 .cta-btn{
     display:inline-block;
     padding:1rem 2rem;
-    background:var(--accent);
+    background:linear-gradient(135deg,var(--accent),var(--accent-secondary));
     color:white;
     text-decoration:none;
     border-radius:10px;
@@ -134,7 +136,7 @@ body{
 h2{
     font-size:2.5rem;
     margin-bottom:2rem;
-    color:var(--accent);
+    color:var(--accent-light);
 }
 
 /* Grids */
@@ -151,20 +153,20 @@ h2{
     background:rgba(255,255,255,0.05);
     padding:2rem;
     border-radius:18px;
-    border:1px solid rgba(255,255,255,0.08);
+    border:1px solid rgba(72,191,227,0.12);
     transition:.3s;
 }
 
 .skill-card:hover,
 .project-card:hover{
     transform:translateY(-10px);
-    border-color:var(--accent);
+    border-color:var(--accent-light);
     box-shadow:0 10px 30px var(--accent-glow);
 }
 
 .skill-card i{
     font-size:2rem;
-    color:var(--accent);
+    color:var(--accent-light);
     margin-bottom:1rem;
 }
 
@@ -172,7 +174,7 @@ h2{
     font-size: 2rem;
     margin-top: 4rem;
     margin-bottom: 2rem;
-    color: var(--accent);
+    color: var(--accent-light);
 }
 
 /* Footer */
@@ -196,7 +198,7 @@ h2{
 }
 
 .social-links a:hover {
-    color: var(--accent);
+    color: var(--accent-light);
     transform: translateY(-5px);
 }
 
