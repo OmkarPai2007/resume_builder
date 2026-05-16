@@ -11,7 +11,7 @@ This web application allows users to create professional resumes with live previ
 
 # 🚀 Live Demo
 
-🔗 GitHub Repository Link:  
+🔗 GitHub Repository Link:  https://omkarpai2007.github.io/resume_builder/
 
 ---
 
