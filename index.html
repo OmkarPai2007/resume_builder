@@ -1,200 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Resume Builder Web App</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+    <!-- html2pdf -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 
 <body>
 
-    <nav class="navbar">
-        <a href="#home" class="logo">My Portfolio</a>
+    <!-- NAVBAR -->
+    <header class="navbar">
 
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <section id="home" class="hero">
-        <div class="container hero-wrapper">
-
-            <div class="hero-content">
-                <span class="hero-tag">Hello, I'm</span>
-                <h1>Omkar Pai</h1>
-                <div class="hero-role">Python & Web Developer</div>
-
-                <p>
-                    Building modern web applications, AI-powered tools,
-                    and responsive digital experiences while continuously
-                    expanding my development skills.
-                </p>
-
-                <a href="#projects" class="cta-btn">View Projects</a>
-            </div>
-
-            <div class="hero-image">
-                <img src="profile.png" alt="Omkar Pai Avatar" class="profile-img">
-            </div>
-
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About Me</h2>
-
-            <p>
-                I am an aspiring developer with a passion for creating modern,
-                responsive web applications and continuously expanding my
-                technical expertise.
-            </p>
-
-            <p>
-                I enjoy learning new technologies, improving my skills,
-                and building real-world projects.
-            </p>
-
-            <br>
-
-            <h3 class="skills-title">Skills</h3>
-
-            <div class="skills-grid">
-
-                <div class="skill-card">
-                    <i class="fa-solid fa-code"></i>
-                    <h3>Web Development</h3>
-                    <p>HTML, CSS, JavaScript</p>
-                </div>
-
-                <div class="skill-card">
-                    <i class="fas fa-laptop-code"></i>
-                    <h3>Programming</h3>
-                    <p>Python, OOP, Java, C</p>
-                </div>
-
-                <div class="skill-card">
-                    <i class="fas fa-database"></i>
-                    <h3>Databases</h3>
-                    <p>MySQL, MongoDB</p>
-                </div>
-
-                <div class="skill-card">
-                    <i class="fas fa-code-branch"></i>
-                    <h3>Version Control</h3>
-                    <p>Git, GitHub</p>
-                </div>
-
+        <div class="logo">
+            <i class="fa-solid fa-file-lines"></i>
+            <div>
+                <h2>Resume Builder</h2>
+                <p>Live preview • PDF export</p>
             </div>
         </div>
-    </section>
 
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2>Projects</h2>
+        <div class="nav-right">
 
-            <div class="projects-grid">
+            <div class="template-switch">
+                <button class="template-btn active" data-template="classic">
+                    Classic
+                </button>
 
-                <div class="project-card">
-                    <img src="translator.png" alt="AI Language Translator">
+                <button class="template-btn" data-template="modern">
+                    Modern
+                </button>
 
-                    <div class="project-card-content">
-                        <h3>AI Language Translator</h3>
-                        <p>
-                            Advanced AI language translator with chatbot integration,
-                            OCR image-to-text, text-to-image generation, translation
-                            history tracking, multilingual support, and payment interface.
+                <button class="template-btn" data-template="compact">
+                    Compact
+                </button>
+            </div>
+
+            <button id="themeToggle" class="icon-btn">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+            <button id="downloadBtn" class="download-btn">
+                <i class="fa-solid fa-download"></i>
+                PDF
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- MAIN -->
+    <main class="main-container">
+
+        <!-- LEFT FORM -->
+        <section class="form-section">
+
+            <!-- PERSONAL -->
+            <div class="card">
+
+                <h3>Personal</h3>
+
+                <div class="profile-upload">
+
+                    <div class="profile-preview">
+                        <img id="profileImagePreview" src="" alt="">
+                        <span id="profilePlaceholder">No photo</span>
+                    </div>
+
+                    <label class="upload-btn">
+                        <i class="fa-solid fa-upload"></i>
+                        Upload
+                        <input type="file" id="profileImage" hidden>
+                    </label>
+
+                </div>
+
+                <div class="grid-2">
+
+                    <div class="input-group">
+                        <label>Full Name *</label>
+                        <input type="text" id="fullName" placeholder="Ada Lovelace">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Title</label>
+                        <input type="text" id="jobTitle" placeholder="Software Engineer">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Email *</label>
+                        <input type="email" id="email" placeholder="ada@example.com">
+                        <small id="emailError"></small>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Phone *</label>
+                        <input type="text" id="phone" placeholder="+1 555 123 4567">
+                        <small id="phoneError"></small>
+                    </div>
+
+                </div>
+
+                <div class="input-group">
+                    <label>Summary</label>
+
+                    <textarea id="summary" rows="4"
+                        placeholder="Write professional summary..."></textarea>
+                </div>
+
+            </div>
+
+            <!-- EXPERIENCE -->
+            <div class="card">
+
+                <div class="card-header">
+                    <h3>Experience</h3>
+
+                    <button id="addExperience" class="small-btn">
+                        <i class="fa-solid fa-plus"></i>
+                        Add
+                    </button>
+                </div>
+
+                <div id="experienceContainer"></div>
+
+            </div>
+
+            <!-- EDUCATION -->
+            <div class="card">
+
+                <div class="card-header">
+                    <h3>Education</h3>
+
+                    <button id="addEducation" class="small-btn">
+                        <i class="fa-solid fa-plus"></i>
+                        Add
+                    </button>
+                </div>
+
+                <div id="educationContainer"></div>
+
+            </div>
+
+            <!-- SKILLS -->
+            <div class="card">
+
+                <div class="card-header">
+                    <h3>Skills</h3>
+
+                    <button id="addSkill" class="small-btn">
+                        <i class="fa-solid fa-plus"></i>
+                        Add
+                    </button>
+                </div>
+
+                <div id="skillsContainer"></div>
+
+            </div>
+
+        </section>
+
+        <!-- RIGHT PREVIEW -->
+        <section class="preview-section">
+
+            <div id="resumePreview" class="resume classic-template">
+
+                <!-- CLASSIC TEMPLATE -->
+                <div class="resume-classic">
+
+                    <div class="resume-header">
+
+                        <img id="previewImage" class="preview-image" src="" alt="">
+
+                        <div>
+                            <h1 id="previewName">Your Name</h1>
+
+                            <h2 id="previewTitle">Software Engineer</h2>
+
+                            <p id="previewContact">
+                                your@email.com • +91 XXXXX XXXXX
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="resume-block">
+                        <h3>SUMMARY</h3>
+                        <p id="previewSummary">
+                            Professional summary appears here...
                         </p>
-
-                        <a href="https://github.com/OmkarPai2007/AI-Language_Translator" target="_blank"
-                            class="project-btn">
-                            <i class="fa-brands fa-github"></i>
-                            View Source Code
-                        </a>
                     </div>
-                </div>
 
-                <div class="project-card">
-                    <img src="landingpage.png" alt="Landing Page Project">
-
-                    <div class="project-card-content">
-                        <h3>Landing Page Project</h3>
-                        <p>
-                            Built a modern responsive IT company landing page featuring
-                            interactive navigation, animated counters, hover effects,
-                            form validation, and glassmorphism-inspired UI.
-                        </p>
-
-                        <a href="https://github.com/OmkarPai2007/landing-page" target="_blank" class="project-btn">
-                            <i class="fa-brands fa-github"></i>
-                            View Source Code
-                        </a>
+                    <div class="resume-block">
+                        <h3>EXPERIENCE</h3>
+                        <div id="previewExperience"></div>
                     </div>
+
+                    <div class="resume-block">
+                        <h3>EDUCATION</h3>
+                        <div id="previewEducation"></div>
+                    </div>
+
+                    <div class="resume-block">
+                        <h3>SKILLS</h3>
+                        <div id="previewSkills"></div>
+                    </div>
+
                 </div>
 
             </div>
-        </div>
-    </section>
 
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Me</h2>
+        </section>
 
-            <div class="contact-wrapper">
-
-                <div class="contact-card">
-                    <h3>Let's Connect</h3>
-                    <p>I’m open to internships, freelance work, and collaborations.</p>
-
-                    <div class="contact-item">
-                        <i class="fa-solid fa-envelope"></i>
-                        <span>omkarpai2007@gmail.com</span>
-                    </div>
-
-                    <div class="contact-item">
-                        <i class="fa-solid fa-phone"></i>
-                        <span>+91 1234567890</span>
-                    </div>
-
-                    <div class="contact-item">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <span>Mumbai, India</span>
-                    </div>
-                </div>
-
-                <form class="contact-form">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea rows="6" placeholder="Your Message" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
-
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <p>&copy; 2026 My Portfolio. All rights reserved.</p>
-
-        <div class="social-links">
-            <a href="i" target="_blank">
-                <i class="fa-brands fa-github"></i>
-            </a>
-
-            <a href="e" target="_blank">
-                <i class="fa-brands fa-linkedin"></i>
-            </a>
-        </div>
-    </footer>
+    </main>
 
     <script src="script.js"></script>
-</body>
 
+</body>
 </html>
